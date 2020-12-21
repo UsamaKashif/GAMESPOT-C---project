@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>>
+#include<stdlib.h>
 
 #include "games.h"
 
@@ -108,13 +109,50 @@ void loginOrRegister(){
 
 int main()
 {
-
+    // LOGIN AND REGISTRATION
     registrationMenu();
     loginOrRegister();
 
-    //gameMenu();
-    //tictactoe();
-    //guessTheCountry();
-    //snakeAndLadder();
+    cout << endl;
+
+    // GAME MENU
+    int menuOption;
+    bool run = true;
+
+    while(run) {
+        system("CLS");
+        gameMenu();
+        do {
+            cin >> menuOption;
+            if (menuOption < 1 || menuOption > 5){
+                cout << "Invalid input, Enter again: "<<endl;
+            };
+        }while(menuOption < 1 || menuOption > 5);
+
+        switch(menuOption){
+        case 1:
+            system("CLS");
+            tictactoe();
+            break;
+        case 2:
+            system("CLS");
+            guessTheCountry();
+            break;
+        case 3:
+            system("CLS");
+            snakeAndLadder();
+            break;
+        case 4:
+            system("CLS");
+            cout<<"User stats"<<endl;
+            cin.get();
+            break;
+        default:
+            run = false;
+            break;
+        }
+    }
+
+
     return 0;
 }

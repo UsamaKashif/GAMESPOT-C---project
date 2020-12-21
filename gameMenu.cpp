@@ -17,8 +17,9 @@ void gameMenu() {
 	cout << "                                                       MENU\n" << endl;
 	cout << "                                         Press '1' ==> Tic-Tac-Toe" << endl;
 	cout << "                                         Press '2' ==> Guess a Country Name" << endl;
-	cout << "                                         Press '3' ==> Snake And Laddar" << endl;
+	cout << "                                         Press '3' ==> Snakes And Laddars" << endl;
 	cout << "                                         Press '4' ==> User Stats" << endl;
+	cout << "                                         Press '5' ==> Quit Program" << endl;
 
 	// system("CLS");
 }
