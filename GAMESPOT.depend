@@ -1,0 +1,30 @@
+# depslib dependency file v1.0
+1608557221 source:e:\bahria uni\cp lab\project\gamespot\tictactoe.cpp
+	<iostream>
+	<stdlib.h>
+	<string>
+
+1608556889 source:e:\bahria uni\cp lab\project\gamespot\guess_the_country.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+	<string>
+
+1608557076 source:e:\bahria uni\cp lab\project\gamespot\main.cpp
+	<iostream>
+	"games.h"
+
+1608557067 e:\bahria uni\cp lab\project\gamespot\games.h
+
+1608557053 source:e:\bahria uni\cp lab\project\gamespot\snake_and_ladder.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+	<string>
+
+1608557951 source:e:\bahria uni\cp lab\project\gamespot\registrationmenu.cpp
+	<iostream>
+
+1608557485 source:e:\bahria uni\cp lab\project\gamespot\gamemenu.cpp
+	<iostream>
+
