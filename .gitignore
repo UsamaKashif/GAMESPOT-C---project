@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+
+GAMESPOT.cpb
+GAMESPOT.depend
+
+obj
+bin
