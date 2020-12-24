@@ -7,7 +7,9 @@ using namespace std;
 const int MAX_TRIES = 5;
 int letterFill(char, string, string&);
 
-int guessTheCountry()
+char wonBy;
+
+bool guessTheCountry()
 {
 	string name;
 	char letter;
@@ -71,6 +73,7 @@ int guessTheCountry()
 		{
 			cout << word << endl;
 			cout << "CONGRADULATIONS! You got it!";
+			wonBy = 'P';
 			break;
 		}
 	}
@@ -78,10 +81,15 @@ int guessTheCountry()
 	{
 		cout << "\nSorry, you lose...you've been hanged." << endl;
 		cout << "The word was : " << word << endl;
+		wonBy = 'C';
 	}
 	cin.ignore();
 	cin.get();
-	return 0;
+	if (wonBy == 'P'){
+        return true;
+	}else {
+        return false;
+	}
 }
 
 /* Take a one character guess and the secret word, and fill in the

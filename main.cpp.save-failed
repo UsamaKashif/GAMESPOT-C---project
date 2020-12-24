@@ -1,5 +1,5 @@
 #include <iostream>
-#include <fstream>
+#include <fstream>>
 #include<stdlib.h>
 
 #include "games.h"
@@ -18,38 +18,30 @@ struct UserStats {
     int gamesLoss;
 };
 
-
 UserStats user_stats = {};
 
-void write(){
-    ofstream MyFile("userStats.txt");
-    MyFile << user_stats.gamesPlayed << "\n";
-    MyFile << user_stats.gamesWon << "\n";
-    MyFile << user_stats.gamesLoss << "\n";
 
-    MyFile.close();
+/**void writeStats() {
+    fstream writeFile;
+    writeFile.open("UserStats.dat", ios::out | ios::binary);
+
+    if(writeFile.is_open()) {
+        writeFile.write(reinterpret_cast<char*>(&user_stats), sizeof(user_stats));
+        writeFile.close();
+   };
 }
 
+void readStats(){
+    fstream readFile;
+    readFile.open("UserStats.dat", ios::in | ios::binary);
+    if(readFile.is_open()){
+        readFile.read(reinterpret_cast<char*>(&user_stats), sizeof(user_stats));
+        readFile.close();
+    };
+} */
 
-void read () {
-    int fromFile[3];
-    string line;
-    ifstream MyFile("userStats.txt");
-    if(MyFile.is_open())
-    {
-        string myArray[5];
 
-        for(int i = 0; i < 3; ++i)
-        {
-            MyFile >> fromFile[i];
-        }
-    }
-
-    user_stats.gamesPlayed = fromFile[0];
-    user_stats.gamesWon = fromFile[1];
-    user_stats.gamesLoss = fromFile[2];
-}
-
+void loginOrRegister();
 
 bool loginScreen(){
     string username, password;
@@ -109,7 +101,7 @@ void registerScreen(){
        f.write(reinterpret_cast<char*>(&user), sizeof(User));
        f.close();
    };
-   write();
+   writeStats("UserStats.dat", user_stats);
 }
 
 void loginOrRegister(){
@@ -128,7 +120,6 @@ void loginOrRegister(){
         while(loggedin == false){
             loggedin = loginScreen();
         }
-        break;
 
     default:
         registerScreen();
@@ -140,20 +131,8 @@ void loginOrRegister(){
     }
 }
 
-void played(bool gameWon){
-    user_stats.gamesPlayed += 1;
-    if (gameWon == true){
-        user_stats.gamesWon += 1;
-    }else {
-        user_stats.gamesLoss += 1;
-    }
-
-    write();
-}
-
 int main()
 {
-    write();
     // LOGIN AND REGISTRATION
     registrationMenu();
     loginOrRegister();
@@ -163,8 +142,6 @@ int main()
     // GAME MENU
     int menuOption;
     bool run = true;
-
-    bool gameWon;
 
     while(run) {
         system("CLS");
@@ -179,33 +156,24 @@ int main()
         switch(menuOption){
         case 1:
             system("CLS");
-            gameWon = tictactoe();
-            played(gameWon);
+            tictactoe();
             break;
         case 2:
             system("CLS");
-            gameWon = guessTheCountry();
-            played(gameWon);
+            guessTheCountry();
             break;
         case 3:
             system("CLS");
-            gameWon = snakeAndLadder();
-            played(gameWon);
+            snakeAndLadder();
             break;
         case 4:
-            read();
-            char goBack;
             system("CLS");
-            cout<<"\t\t\t\t\t\t\tUSER STATS"<<endl;
-            cout<<"-------------------------------------------------------------------------------------------"<<endl;
-            cout<<"GAMES PLAYED: "<< user_stats.gamesPlayed <<endl;
-            cout<<"GAMES WON: "<< user_stats.gamesWon <<endl;
-            cout<<"GAMES LOST: "<< user_stats.gamesLoss <<endl;
-
-            cout<<endl;
-            cout<<"Enter any character to go back: ";
-            cin>>goBack;
-
+            readStats("UserStats.dat", user_stats);
+            cout<<"User stats"<<endl;
+            cout<<"GAMES PLAYED: " << user_stats.gamesPlayed << endl;
+            cout << "GAMES WON: " << user_stats.gamesWon << endl;
+            cout << "GAMES LOST: " << user_stats.gamesLoss << endl;
+            cin.get();
             break;
         default:
             run = false;

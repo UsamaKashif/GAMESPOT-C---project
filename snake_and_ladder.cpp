@@ -29,7 +29,9 @@ int computer = 0;
 int squares[99]; // for the 100 squares, computers right counts from 0
 
 
-int snakeAndLadder() //this is where it all goes down in c++, it's like the canvas for da vinci...
+char won;
+
+bool snakeAndLadder() //this is where it all goes down in c++, it's like the canvas for da vinci...
 {
 	srand(time(NULL)); //we need random numbers remeber?
 
@@ -229,18 +231,26 @@ int snakeAndLadder() //this is where it all goes down in c++, it's like the canv
 	if (squares[100] == 200)
 	{
 		cout << "||You Win!||" << endl;
+		won = 'P';
 	}
 	else if (squares[100] == 300)
 	{
 		cout << "||Game Over Computer Wins!" << endl;
+		won = 'C';
 	}
 	else
 	{
 		cout << "You Quit!";
+		won = 'C';
 	}
 
 	cin.get();
 	cin.ignore();
+	if (won == 'P'){
+        return true;
+	}else {
+        return false;
+	}
 }
 
 void board()//define the board drawing mechanism!

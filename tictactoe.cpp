@@ -6,6 +6,8 @@ using namespace std;
 char square[10] = { 'o', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
 
 
+char wonBy_ticTacToe;
+
 int checkwin()
 {
 
@@ -67,7 +69,7 @@ void board_tictactoe()
 }
 
 
-void tictactoe () {
+bool tictactoe () {
     cout << "=======================================" << endl;
     cout << "               WELCOME " << endl;
     cout << "=======================================" << endl;
@@ -136,12 +138,21 @@ void tictactoe () {
                 player++;
             } while (i == -1);
             board_tictactoe();
-            if (i == 1)
-
+            if (i == 1){
                 cout << "==>\aPlayer " << --player << " win " << endl;
-            else
+                if (player == 1){
+                    wonBy_ticTacToe = 'U';
+                }else{
+                    wonBy_ticTacToe = 'O';
+                }
+            }else{
                 cout << "==>\aGame draw" << endl;
-            cout << " -----GAME OVER-----" << endl;
+            }
+            if (wonBy_ticTacToe = 'U'){
+                return true;
+            }else{
+                return false;
+            }
         }
 
         else if (x == 'b' || x == 'B')
