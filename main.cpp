@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
-#include<stdlib.h>
+#include <stdlib.h>
+#include <windows.h>
 
 #include "games.h"
 
@@ -121,11 +122,23 @@ void loginOrRegister(){
             cout<<"Invalid Input, Enter Again: "<<endl;
         }
     }while(loginOption < 1 || loginOption > 2);
-
+    static char loginAgain = 'Y';
     switch(loginOption) {
     case 1:
+
         loggedin = loginScreen();
+        if (loginAgain == 'N' || loginAgain == 'n') {
+            exit(0);
+        }
         while(loggedin == false){
+            Sleep(2000);
+            system("CLS");
+            cout << "Do you want try logging in again or exit the application: Enter Y or N" << endl;
+            cin >> loginAgain;
+            if (loginAgain == 'N' || loginAgain == 'n') {
+                exit(0);
+            }
+            system("CLS");
             loggedin = loginScreen();
         }
         break;
@@ -134,6 +147,14 @@ void loginOrRegister(){
         registerScreen();
         loggedin = loginScreen();
         while(loggedin == false){
+            Sleep(2000);
+            system("CLS");
+            cout << "Do you want try logging in again or exit the application: Enter Y or N" << endl;
+            cin >> loginAgain;
+            if (loginAgain == 'N' || loginAgain == 'n') {
+                exit(0);
+            }
+            system("CLS");
             loggedin = loginScreen();
         }
         break;
@@ -153,7 +174,7 @@ void played(bool gameWon){
 
 int main()
 {
-    write();
+
     // LOGIN AND REGISTRATION
     registrationMenu();
     loginOrRegister();

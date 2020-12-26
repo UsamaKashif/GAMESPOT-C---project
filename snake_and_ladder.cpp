@@ -64,7 +64,7 @@ bool snakeAndLadder() //this is where it all goes down in c++, it's like the can
 		squares[i] = i;
 	}
 
-	do // every game is in some sort of loop
+	do // game loop
 	{
 		cout << "Enter numbers between 1 to 6 : ";
 		cin >> input;

@@ -51,6 +51,7 @@ bool guessTheCountry()
 	// Loop until the guesses are used up
 	while (num_of_wrong_guesses < MAX_TRIES)
 	{
+
 		cout << "\n\n" << unknown;
 		cout << "\n\nGuess a letter: ";
 		cin >> letter;
