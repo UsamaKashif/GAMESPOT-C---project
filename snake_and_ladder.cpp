@@ -5,20 +5,20 @@
 
 using namespace std;
 
-void board();//initialize function to draw the board
+void board();
 
-int check_progress();//initialize function to check game progress
+int check_progress();
 
-int roll_dice();//initialize function to roll dice
+int roll_dice();
 
-//then we declare some variables
 
-int roll; //holds the rolled value for the player
-int computer_roll; //holds the rolled value for computer
 
-int input; //variable to hold the users input, any number to roll dice and 0 to quit game, although entering a not a number value ends  the game as well...
+int roll;
+int computer_roll;
 
-int progress; //holds the value for the progress
+int input;
+
+int progress;
 
 int player = 0;
 
@@ -26,17 +26,17 @@ int computer = 0;
 
 //both player and computer's initial starting point is 0
 
-int squares[99]; // for the 100 squares, computers right counts from 0
+int squares[99];
 
 
 char won;
 
-bool snakeAndLadder() //this is where it all goes down in c++, it's like the canvas for da vinci...
+bool snakeAndLadder()
 {
-	srand(time(NULL)); //we need random numbers remeber?
+	srand(time(NULL)); //we need random numbers remember?
 
-	string alert = ""; //to alert you for your triumphs and misfortunes
-	string computer_alert = ""; // to alert you for computer's triumphs and misfortunes
+	string alert = "";
+	string computer_alert = "";
 
 	cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
 	cout << "\t\t\t\t   SNAKES AND LADDERS" << endl;
@@ -69,18 +69,18 @@ bool snakeAndLadder() //this is where it all goes down in c++, it's like the can
 		cout << "Enter numbers between 1 to 6 : ";
 		cin >> input;
 
-        roll = roll_dice();//player rolls dice
+        roll = roll_dice();
 		if ((roll + player) > 100)
 		{
-			player = player; //player has rolled a number that exceeds the end point player remains where they are
+			player = player;
 		}
 		else
 		{
-			squares[player] = player;//overwrite the current position
-			player = player + roll;//move player to a new position
+			squares[player] = player; //overwrite the current position
+			player = player + roll; //move player to a new position
 		}
 
-		computer_roll = roll_dice();//computer rolls dice
+		computer_roll = roll_dice(); //computer rolls dice
 
 		if ((computer_roll + computer) > 100)
 		{
@@ -88,11 +88,11 @@ bool snakeAndLadder() //this is where it all goes down in c++, it's like the can
 		}
 		else
 		{
-			squares[computer] = computer;//overwrite the current position
-			computer = computer + computer_roll;//move computer to a new position
+			squares[computer] = computer; //overwrite the current position
+			computer = computer + computer_roll; //move computer to a new position
 		}
 
-		switch (player) // it is snakes and ladders, numbers represent the snakes and ladders
+		switch (player)
 		{
 		case 99:
 			player = 5;
@@ -205,8 +205,8 @@ bool snakeAndLadder() //this is where it all goes down in c++, it's like the can
 			computer_alert = "";
 		}
 
-		squares[player] = 200; //player's position shall be represented by the integer 200
-		squares[computer] = 300; //computer's position shall be represented by the inteer 300
+		squares[player] = 222; //player's position shall be represented by the integer 222
+		squares[computer] = 333; //computer's position shall be represented by the integer 333
 
 		if (input != 0)
 		{
@@ -228,12 +228,12 @@ bool snakeAndLadder() //this is where it all goes down in c++, it's like the can
 
 	} while (progress == 0 && input != 0);
 
-	if (squares[100] == 200)
+	if (squares[100] == 222)
 	{
 		cout << "||You Win!||" << endl;
 		won = 'P';
 	}
-	else if (squares[100] == 300)
+	else if (squares[100] == 333)
 	{
 		cout << "||Game Over Computer Wins!" << endl;
 		won = 'C';
@@ -244,8 +244,6 @@ bool snakeAndLadder() //this is where it all goes down in c++, it's like the can
 		won = 'C';
 	}
 
-	cin.get();
-	cin.ignore();
 	if (won == 'P'){
         return true;
 	}else {
@@ -253,7 +251,7 @@ bool snakeAndLadder() //this is where it all goes down in c++, it's like the can
 	}
 }
 
-void board()//define the board drawing mechanism!
+void board() //define the board drawing mechanism!
 {
 	cout << "----------------------------------------------------------------------------" << endl << endl;
 	cout << squares[100] << "\t" << squares[99] << "\t" << squares[98] << "\t" << squares[97] << "\t" << squares[96] << "\t"
@@ -288,19 +286,19 @@ void board()//define the board drawing mechanism!
 	cout << "----------------------------------------------------------------------------" << endl;
 }
 
-int roll_dice()//define the dice rolling mechanism
+int roll_dice()
 {
-	return rand() % (7 - 1) + 1;//can only roll 1 - 6
+	return rand() % (7 - 1) + 1;
 }
 
-int check_progress()//define the progress checking mechanism
+int check_progress()
 {
-	if (squares[100] == 200 || squares[100] == 300)
+	if (squares[100] == 222 || squares[100] == 333)
 	{
-		return 1;//game has ended... win! someone has
+		return 1;
 	}
 	else
 	{
-		return 0;//game is still on, win no one has...
+		return 0;
 	}
 }
