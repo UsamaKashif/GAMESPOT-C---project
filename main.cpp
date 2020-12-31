@@ -34,11 +34,9 @@ void write(){
 
 void read () {
     int fromFile[3];
-    string line;
     ifstream MyFile("userStats.txt");
     if(MyFile.is_open())
     {
-        string myArray[5];
 
         for(int i = 0; i < 3; ++i)
         {
