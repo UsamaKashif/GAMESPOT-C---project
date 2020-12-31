@@ -35,7 +35,6 @@ bool guessTheCountry()
 	// Initialize the secret word with the * character.
 	string unknown(word.length(), '*');
 
-	// welcome the user
 	cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
 	cout << "\t\t\t\t     GUESS THE COUNTRY NAME" << endl;
 	cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" << endl;
@@ -69,7 +68,7 @@ bool guessTheCountry()
 		// Tell user how many guesses has left.
 		cout << "You have " << MAX_TRIES - num_of_wrong_guesses;
 		cout << " guesses left." << endl;
-		// Check if user guessed the word.
+
 		if (word == unknown)
 		{
 			cout << word << endl;
@@ -84,8 +83,7 @@ bool guessTheCountry()
 		cout << "The word was : " << word << endl;
 		wonBy = 'C';
 	}
-	cin.ignore();
-	cin.get();
+
 	if (wonBy == 'P'){
         return true;
 	}else {
@@ -93,9 +91,6 @@ bool guessTheCountry()
 	}
 }
 
-/* Take a one character guess and the secret word, and fill in the
-unfinished guessword. Returns number of characters matched.
-Also, returns zero if the character is already guessed. */
 
 int letterFill(char guess, string secretword, string &guessword)
 {
