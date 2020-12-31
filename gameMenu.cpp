@@ -13,7 +13,7 @@ void gameMenu() {
 	cout << "    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" << endl;
 
 
-	cout << "                                         WE WELCOME YOU TO OUR WEBSITE 'GAMESPOT'\n" << endl;
+	cout << "                                         WELCOME TO 'GAMESPOT'\n" << endl;
 	cout << "                                                       MENU\n" << endl;
 	cout << "                                         Press '1' ==> Tic-Tac-Toe" << endl;
 	cout << "                                         Press '2' ==> Guess a Country Name" << endl;
